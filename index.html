@@ -2,11 +2,15 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=https://kokokukuk.tistory.com/13">
     <script>
         function isMobile() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             return /android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
         }
+
+</head>
+<body>
         function getToday() {
             const today = new Date();
             return today.toISOString().split('T')[0];
@@ -15,22 +19,14 @@
             const today = getToday();
             let storedDate = localStorage.getItem('visitDate');
             let visitCount = localStorage.getItem('visitCount') ? parseInt(localStorage.getItem('visitCount')) : 0;
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="내 블로그 글 제목" />
-    <meta property="og:description" content="내 블로그 글 설명" />
-    <meta property="og:image" content="https://i1.daumcdn.net/thumb/C264x200.fwebp.q85/?fname=https://blog.kakaocdn.net/dn/bqbe6t/btsJTIBaorP/tp3KKraMPWiC1671sYSkGk/img.jpg" />
-    <meta property="og:image:width" content="1200" />  <!-- 썸네일 너비 -->
-    <meta property="og:image:height" content="630" />  <!-- 썸네일 높이 -->
-    <meta property="og:url" content="https://todaydo.tistory.com/" />
-
             if (storedDate !== today) {
                 visitCount = 0;
                 storedDate = today;
                 localStorage.setItem('visitDate', today);
             }
-    <title>리다이렉트 페이지</title>
 
+</body>
+</html>
             visitCount++;
             localStorage.setItem('visitCount', visitCount);
             if (isMobile()) {
@@ -52,15 +48,6 @@
             }
         }
         window.onload = handleRedirect;
-    <script>
-        // 페이지가 로드되면 리다이렉트
-        window.onload = function() {
-            window.location.href = "https://aaass.tistory.com/5";
-        };
     </script>
 </head>
-<body>
-    <!-- 리다이렉트 중 사용자에게 보여줄 메시지 -->
-    <p>잠시 후 페이지가 이동합니다...</p>
-</body>
 </html>
