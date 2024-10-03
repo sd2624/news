@@ -1,52 +1,27 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="내 블로그 글 제목" />
+    <meta property="og:description" content="내 블로그 글 설명" />
+    <meta property="og:image" content="https://i1.daumcdn.net/thumb/C264x200.fwebp.q85/?fname=https://blog.kakaocdn.net/dn/bqbe6t/btsJTIBaorP/tp3KKraMPWiC1671sYSkGk/img.jpg" />
+    <meta property="og:image:width" content="1200" />  <!-- 썸네일 너비 -->
+    <meta property="og:image:height" content="630" />  <!-- 썸네일 높이 -->
+    <meta property="og:url" content="https://todaydo.tistory.com/" />
+
+    <title>리다이렉트 페이지</title>
+
     <script>
-        function isMobile() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            return /android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-        }
-
-        function getToday() {
-            const today = new Date();
-            return today.toISOString().split('T')[0];
-        }
-
-        function handleRedirect() {
-            const today = getToday();
-
-            let storedDate = localStorage.getItem('visitDate');
-            let visitCount = localStorage.getItem('visitCount') ? parseInt(localStorage.getItem('visitCount')) : 0;
-
-            if (storedDate !== today) {
-                visitCount = 0;
-                storedDate = today;
-                localStorage.setItem('visitDate', today);
-            }
-
-            visitCount++;
-            localStorage.setItem('visitCount', visitCount);
-
-            if (isMobile()) {
-                if (visitCount >= 3) {
-                    const mobileUrls = ["https://kokokukuk.tistory.com/", "https://todaydo.tistory.com/"];
-                    const randomMobileUrl = mobileUrls[Math.floor(Math.random() * mobileUrls.length)];
-                    window.location.href = randomMobileUrl;
-                } else {
-                    window.location.href = "https://tip-moa.blogspot.com/2024/09/blog-post_60.html";
-                }
-            } else {
-                if (visitCount >= 3) {
-                    const pcUrls = ["https://kokokukuk.tistory.com/", "https://todaydo.tistory.com/"];
-                    const randomPcUrl = pcUrls[Math.floor(Math.random() * pcUrls.length)];
-                    window.location.href = randomPcUrl;
-                } else {
-                    window.location.href = "https://www.naver.com";
-                }
-            }
-        }
-
-        window.onload = handleRedirect;
+        // 페이지가 로드되면 리다이렉트
+        window.onload = function() {
+            window.location.href = "https://aaass.tistory.com/5";
+        };
     </script>
 </head>
+<body>
+    <!-- 리다이렉트 중 사용자에게 보여줄 메시지 -->
+    <p>잠시 후 페이지가 이동합니다...</p>
+</body>
 </html>
